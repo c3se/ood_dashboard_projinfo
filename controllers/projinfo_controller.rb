@@ -4,8 +4,8 @@ class ProjinfoController < ApplicationController
   # GET /support?session_id=<session_UUID>
   # session_id [UUID] optional session to add data to the support ticket
   def index
-    #dq = ProjInfo.new()
-    #@res_list = dq.disk_quota
+    projinfo = ProjInfo.new()
+    @user_projects = projinfo.main
     respond_to do |format|
       format.html do
         render :index
