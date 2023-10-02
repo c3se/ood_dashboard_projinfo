@@ -1,7 +1,7 @@
 require "open3"
 require "etc"
 require "json"
-class ProjInfo
+class Projinfo
   def initialize()
   end
 
