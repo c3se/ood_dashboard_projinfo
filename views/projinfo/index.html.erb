@@ -12,14 +12,14 @@
 <% @user_projects.each do |project| %>
 <tr>
   <td><%= project["project"] %></td>
-  <td><%= project["used"] %></td>
+  <td><%= project["used"].to_f.round(2) %></td>
   <td><%= project["allocated"] %></td>
   <td><%= project["queue"] %></td>
 </tr>
 <% project["users"].each do |user| %>
 <tr>
   <td style = "padding-left: 2em"><%= user["username"] %></td>
-  <td><%= user["used"] %></td>
+  <td><%= user["used"].to_f.round(2) %></td>
 </tr>
 <%end%>
 <%end%>
