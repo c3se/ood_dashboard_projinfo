@@ -1,26 +1,29 @@
 <!--
   Projinfo ERB template
-  Expectes res_list (a list) of quota objects.
+  Expects a list of projects from projinfo \-\-json.
 -->
 <table class = "table table-striped table-condensed dataTable no-footer">
 <tr>
   <th>Project</th>
-  <th>Used[h]</th>
-  <th>Allocated[h]</th>
-  <th>Queue</th>
+  <th title="Usage is reported in core-hours per month">Used [h]</th>
+  <th title="Allocation is reported in core-hours per month">Allocated [h]</th>
+  <th title="The system the queue belongs to">Queue</th>
 </tr>
 <% @user_projects.each do |project| %>
 <tr>
   <td><%= project["project"] %></td>
-  <td><%= project["used"].to_f.round(2) %></td>
-  <td><%= project["allocated"] %></td>
-  <td><%= project["queue"] %></td>
+  <td title="Usage is reported in core-hours per month"><%= project["used"].to_f.round(2) %></td>
+  <td title="Allocation is reported in core-hours per month"><%= project["allocated"] %></td>
+  <td title="The system the queue belongs to"><%= project["queue"] %></td>
 </tr>
 <% project["users"].each do |user| %>
 <tr>
-  <td style = "padding-left: 2em"><%= user["username"] %></td>
-  <td><%= user["used"].to_f.round(2) %></td>
+  <td title="Usage for user <%= user["username"] %> in project <%= project["project"] %>" style = "padding-left: 2em"><%= user["username"] %></td>
+  <td title="Usage is reported in core-hours per month"><%= user["used"].to_f.round(2) %></td>
+  <td></td>
+  <td></td>
 </tr>
 <%end%>
 <%end%>
 </table>
+<p>Please see <a href = "https://www.c3se.chalmers.se/documentation/running_jobs/">Running jobs at Chalmers website</a> for more information.</p>
