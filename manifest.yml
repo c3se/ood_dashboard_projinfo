@@ -1,0 +1,8 @@
+---
+name: Check my project usage
+category: Jobs
+description: Check my project usage in core-hours per month
+icon: fa://clock-o
+url: projinfo
+new_window: false
+
