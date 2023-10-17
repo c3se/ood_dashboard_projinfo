@@ -2,7 +2,7 @@
 name: Check my project usage
 category: Jobs
 description: Check my project usage in core-hours per month
-icon: fa://clock-o
+icon: fa://chart-bar
 url: projinfo
 new_window: false
 
