@@ -6,10 +6,10 @@ class Projinfo
   end
 
   def main
-    cmd = "projinfo -r Alvis"
-    stdout_str, stderr_str, status = Open3.capture3(cmd)
-    #fh = File.read("/tmp/projinfo.json")
-    projects = JSON.parse(fh)
+    cmd = "projinfo -r Alvis --json"
+    data, stderr_str, status = Open3.capture3(cmd)
+    #data = File.read("/tmp/projinfo.json")
+    projects = JSON.parse(data)
     target = Etc.getpwuid.name
     user_projects = projects.select do |project|
       project["users"].any? { |user| user["username"] == target }
