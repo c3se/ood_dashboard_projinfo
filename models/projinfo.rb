@@ -6,7 +6,7 @@ class Projinfo
   end
 
   def main
-    cmd = "projinfo -r Alvis --json"
+    cmd = "/usr/local/bin/projinfo -r Alvis --json"
     data, stderr_str, status = Open3.capture3(cmd)
     #data = File.read("/tmp/projinfo.json")
     projects = JSON.parse(data)
