@@ -13,7 +13,7 @@
 <tr>
   <td><%= project["project"] %></td>
   <td title="Usage is reported in <%= project["unit_desc"] %> per rolling 30 day window">
-  <% if project["used"].to_f > 0.01*project["allocated"].to_f %>
+  <% if project["used"].to_f > 0.9*project["allocated"].to_f %>
     <i title="Warning! You are within 90% of your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: red" aria-hidden="true"></i>
   <% elsif project["used"].to_f > 0.8*project["allocated"].to_f %>
     <i title="Warning! You are within 80% of your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: #f2a60c" aria-hidden="true"></i>
