@@ -12,6 +12,11 @@ class Projinfo
     target = Etc.getpwuid.name
     user_projects = projects.select do |project|
       project["users"].any? { |user| user["username"] == target }
+      if (project["queue"].eql? "alvis")
+        project["unit_desc"] = "GPU-hours"
+      else
+        project["unit_desc"] = "core-hours"
+      end
     end
     return user_projects
   end
