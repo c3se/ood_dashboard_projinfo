@@ -4,14 +4,14 @@
 -->
 <table style="font-family: monospace; text-align: right" class = "table table-striped table-condensed dataTable no-footer">
 <tr>
-  <th style="text-align: left">Project</th>
+  <th title="The usage, allocation and queue applies to this project" style="text-align: left">Project</th>
   <th title="The total usage for this project">Used[h]</th>
   <th title="The allocation for this project">Allocated[h]</th>
   <th title="The partition/queue the usage is reported for">Queue</th>
 </tr>
 <% @user_projects.each do |project| %>
 <tr>
-  <td style="text-align: left"><%= project["project"] %></td>
+   <td title="Total usage and allocation for project <%= project["project"] %>" style="text-align: left"><%= project["project"] %></td>
   <td title="Usage is reported in <%= project["unit_desc"] %> per rolling 30 day window">
   <% if project["used"].to_f > 0.9*project["allocated"].to_f %>
     <i title="Warning! You are within 90% of your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: red" aria-hidden="true"></i>
