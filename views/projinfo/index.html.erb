@@ -13,10 +13,12 @@
 <tr>
    <td title="Total usage and allocation for project <%= project["project"] %>" style="text-align: left"><%= project["project"] %></td>
   <td title="Usage is reported in <%= project["unit_desc"] %> per rolling 30 day window">
-  <% if project["used"].to_f > 0.9*project["allocated"].to_f %>
-    <i title="Warning! You are within 90% of your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: red" aria-hidden="true"></i>
-  <% elsif project["used"].to_f > 0.8*project["allocated"].to_f %>
-    <i title="Warning! You are within 80% of your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: #f2a60c" aria-hidden="true"></i>
+  <% if project["used"].to_f > 3*project["allocated"].to_f %>
+    <i title="Warning! You have used three times your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: red" aria-hidden="true"></i>
+  <% elsif project["used"].to_f > 2*project["allocated"].to_f %>
+    <i title="Warning! You have used more than double your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: #f2a60c" aria-hidden="true"></i>
+  <% elsif project["used"].to_f > project["allocated"].to_f %>
+    <i title="Warning! You have used more than your allocation" class="fa fa-warning" style="font-size: 1.25rem; color: #eef20c" aria-hidden="true"></i>
   <% end %>
   <%= sprintf("%.2f", project["used"].to_f) %>
   </td>
